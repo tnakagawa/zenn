@@ -1376,7 +1376,6 @@ PegaSys, ConsenSys
 
 <details>
 <summary>原文</summary>
-</details>
 
 1.I studied mathematics many years ago, but diligently shirked anything to do with pure maths, including group theory.
 I regret that now. Anyway, this will not be too technical, but I’m also not an expert, so might get some things wrong and will be a bit hand-wavy in general.
@@ -1423,6 +1422,8 @@ While not specific to BLS12-381, here is an excellent article about cofactor cle
 14.This is a general property of roots of unity in multiplicative groups, not special to elliptic curves or pairings
 
 15.This should have been “increment the message and go back to one” on failure, which is more secure.
+
+</details>
 
 1.私は昔、数学を勉強していましたが、群論を含む純粋数学に関係することは真面目に敬遠していました。
 今になって後悔している。とにかく、これはあまり専門的ではありませんが、私も専門家ではないので、いくつかのことを間違っているかもしれませんし、一般的に少し手探り状態になるでしょう。
@@ -1473,4 +1474,4 @@ BLS12-381に限ったことではありませんが、余因子クリアーに�
 半分くらい理解できました。
 ペアリングの実装方法についてもっと詳細に知りたいので、[Pairings for Beginners](https://www.craigcostello.com.au/s/PairingsForBeginners.pdf)を読まないといけないらしい。
 
-課題が増えた・・・
+理解するまでの道のりは長い・・・
