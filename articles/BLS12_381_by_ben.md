@@ -1466,3 +1466,11 @@ BLS12-381に限ったことではありませんが、余因子クリアーに�
 14.これは乗法群における単一根の一般的な性質であり、楕円曲線やペアリングに特別なものではありません。
 
 15.これは、失敗時に「メッセージをインクリメントして1に戻る（increment the message and go back to one）」であるべきで、その方がより安全です。
+
+
+# まとめ（Conclusion）
+
+半分くらい理解できました。
+ペアリングの実装方法についてもっと詳細に知りたいので、[Pairings for Beginners](https://www.craigcostello.com.au/s/PairingsForBeginners.pdf)を読まないといけないらしい。
+
+課題が増えた・・・
