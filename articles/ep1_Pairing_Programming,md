@@ -1,0 +1,79 @@
+---
+title: "EP1「Pairing Programming」の翻訳"
+emoji: ""
+type: "tech" # tech: 技術記事 / idea: アイデア
+topics: ["crypto"]
+published: false
+---
+
+# はじめに（Introduction）
+
+Ben Lynn blynn@cs.stanford.edu さんの以下の文章を[Google翻訳](https://translate.google.com/)などで翻訳します。
+
+https://crypto.stanford.edu/pbc/notes/ep/
+
+# Pairing Programming
+
+メンテナンスが必要です。 代わりに[私の論文](https://crypto.stanford.edu/pbc/thesis.html)を参照してください。
+
+Minimal pairing-based cryptography requires:
+最小限のペアリングベースの暗号化には以下が必要です。
+
+Arithmetic in 
+: I built mine on top of the GMP library, which conveniently provides number theoretic functions such as inversion modulo a prime and the Jacobi symbol.
+
+Elliptic curve groups: mostly routines for solving 
+ over 
+, point addition and multiplication.
+
+Bilinear pairing: Miller’s algorithm.
+
+The above suffices for what I call Type A and B (and A1) pairings: very fast, but elements take a lot of space to represent.
+
+Field extensions must be implemented for other pairing types.
+
+Finding certain pairing-friendly curves requires more work. The the MNT curve construction method requires routines for finding roots modulo a given prime, testing polynomial irreducibility, computing Hilbert polynomials. These in turn depend on high precision complex floating point arithmetic and also an algorithm to solve a Pell-type equation.
+
+Arithmetic on Elliptic Curves
+Curves over fields of characteristic greater than 3 can be written in the form 
+. For such curves, point addition and multiplication routines are straightforward. (See Blake, Seroussi and Smart.) We give the explicit formulae here.
+
+Suppose we wish to compute 
+. If 
+, then 
+ and similarly 
+ is easily handled. If 
+ then either 
+ in which case 
+ (for we have 
+), or 
+ in which case the point doubling algorithm is invoked. Note that the point doubling algorithm assumes the input does not have order 2, i.e. the 
+-coordinate is nonzero. (If 
+ has order 2, the result is 
+.)
+
+Point addition for 
+:
+
+ 
+ 
+Point doubling:
+
+ 
+ 
+Generating Random Points
+The standard method to generate a random point on an elliptic curve is to choose a random 
+-coordinate and solve a quadratic equation for 
+. (If no solution exists, a new 
+-coordinate is chosen.) For odd characteristics, this can be done once one is able to find square roots of elements. In a finite field of prime order, square roots can be obtained via the Tonelli-Shanks algorithm. In general fields, see D.J. Bernstein’s draft of a paper entitled "Faster square roots in annoying finite fields". At the moment I just solve 
+ using the Cantor-Zassenhaus method (which Bernstein calls Legendre’s method).
+
+Easier ways to generate random points exist for particular cases. For example if 
+ is a prime with 
+ then the cube root of 
+ is simply 
+. Thus if 
+ in the equation of the elliptic curve, then it is a simple matter to pick 
+ first and then solve for 
+.
+
