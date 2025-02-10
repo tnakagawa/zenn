@@ -1,0 +1,14 @@
+title: "プログラミング・コントラクト"
+summary: "Hardhatを使ってSolidityでスマートコントラクトを作成する方法を学びます。"
+topics: ["hardhat", "solidity"]
+published: false
+price: 0 # 有料の場合200〜5000
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - 01_introduction
+  - 02_prerequisites
+  - 03_hardhat_setup
+  - 04_solidity_basics
+  - 05_erc20_implementation
+  - 06_deploy_and_test
+  - 07_reference
