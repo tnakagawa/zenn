@@ -2,15 +2,18 @@
 title: "Hardhatのセットアップと基本操作"
 ---
 
-# Hardhatのセットアップと基本操作
+# Hardhat のセットアップと基本操作
 
-Hardhatは、Ethereumのスマートコントラクト開発用の柔軟で高度な開発環境およびフレームワークです。開発者がEthereumのスマートコントラクトを簡単に作成、テスト、デプロイするためのツールを提供します。
+Hardhat は、Ethereum のスマートコントラクト開発用の柔軟で高度な開発環境およびフレームワークです。開発者が Ethereum のスマートコントラクトを簡単に作成、テスト、デプロイするためのツールを提供します。
+本章では、Hardhat でプロジェクトを作成し
 
 ## 準備
 
-VSCodeで
+作業ファイルを作成し、VSCode を起動し作成した作業をフォルダを開きます。
 
-## Hardhatのインストール
+## Hardhat のインストール
+
+まず
 
 ```sh
 npm init -y
@@ -26,8 +29,62 @@ npm install --save-dev hardhat
 npx hardhat init
 ```
 
-### プロジェクトディレクトリの構成
+```sh
+888    888                      888 888               888
+888    888                      888 888               888
+888    888                      888 888               888
+8888888888  8888b.  888d888 .d88888 88888b.   8888b.  888888
+888    888     "88b 888P"  d88" 888 888 "88b     "88b 888
+888    888 .d888888 888    888  888 888  888 .d888888 888
+888    888 888  888 888    Y88b 888 888  888 888  888 Y88b.
+888    888 "Y888888 888     "Y88888 888  888 "Y888888  "Y888
+
+Welcome to Hardhat v2.22.18
+
+√ What do you want to do? · Create a JavaScript project
+√ Hardhat project root: · C:\work\hardhat_js
+√ Do you want to add a .gitignore? (Y/n) · y
+√ Help us improve Hardhat with anonymous crash reports & basic usage data? (Y/n) · y
+√ Do you want to install this sample project's dependencies with npm (@nomicfoundation/hardhat-toolbox)? (Y/n) · y
+
+npm install --save-dev "@nomicfoundation/hardhat-toolbox@^5.0.0"
+```
+
+プロジェクトの初期化が完了すると、いくつかのディレクトリとファイルが自動的に生成されます。基本的なディレクトリの構成は次の通りです。
+
+- `contracts/`: スマートコントラクトのソースコードを格納するディレクトリ。
+
+- `ignition/`: デプロイのモジュールや詳細データを格納するディレクトリ。Hardhat ignition スマート コントラクトをデプロイするための宣言型システムです。
+
+- `test/`: テストファイルを格納するディレクトリ。スマートコントラクトの機能をテストするためのファイルを配置します。
+
+プロジェクトが成長するにつれて、新しいディレクトリやファイルを追加することも可能です。
 
 ## コンパイル
 
-### ディレクトリの構成
+Hardhat を使用してスマートコントラクトをコンパイルする手順は以下の通りです。
+
+```sh
+npx hardhat compile
+```
+
+コンパイルが正常に完了すると、コンパイル済みのファイルが artifacts/ ディレクトリに生成されます。
+これらのファイルには、スマートコントラクトのバイトコードや ABI（Application Binary Interface）が含まれています。
+
+## デプロイ
+
+次に、スマートコントラクトをデプロイする方法について説明します。デプロイ用のスクリプトを作成し、以下のコマンドを実行します。
+
+```sh
+npx hardhat ignition deploy
+```
+
+## テスト
+
+最後に、スマートコントラクトのテスト方法について説明します。テストファイルを作成し、以下のコマンドを実行します。
+
+```sh
+npx hardhat test
+```
+
+このコマンドは、 `test/` ディレクトリ内のテストファイルを実行し、スマートコントラクトの機能が期待通りに動作するかを確認します。
